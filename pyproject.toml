@@ -21,4 +21,5 @@ dev-mode-dirs = ["components", "bases", "development", "."]
 
 [tool.polylith.bricks]
 "bases/my_namespace/my_example_base" = "my_namespace/my_example_base"
+"bases/my_tdd_base/src/my_namespace/my_tdd_base" = "my_namespace/my_tdd_base"
 "components/my_namespace/my_example_component" = "my_namespace/my_example_component"

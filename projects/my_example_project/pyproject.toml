@@ -22,9 +22,12 @@ top-namespace = "my_top_namespace"
 # [tool.hatch.build.targets.sdist.force-include]
 # "../my_other_project/src" = "src"
 
-# [tool.hatch.build.targets.wheel]
-# include = ["src", "mynamespace"]
-# sources = ["src", "mynamespace"]
+[tool.hatch.build.targets.wheel]
+# packages = ["my_example_project", "my_namespace"]
+include = ["src", "my_namespace"]
+sources = ["src",
+# "my_namespace"
+]
 # only-packages = true
 
 

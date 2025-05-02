@@ -3,7 +3,7 @@ namespace = "my_namespace"
 git_tag_pattern = "stable-*"
 
 [tool.polylith.structure]
-theme = "loose"
+theme = "tdd"
 
 [tool.polylith.tag.patterns]
 stable = "stable-*"

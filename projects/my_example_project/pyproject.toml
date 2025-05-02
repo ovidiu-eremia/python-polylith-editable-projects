@@ -12,9 +12,26 @@ dependencies = []
 
 [tool.hatch.build.hooks.polylith-bricks]
 
+[tool.polylith.build]
+top-namespace = "my_top_namespace"
+
 [tool.polylith.bricks]
 "../../bases/my_namespace/my_example_base" = "my_namespace/my_example_base"
 "../../components/my_namespace/my_example_component" = "my_namespace/my_example_component"
 
+# [tool.hatch.build.targets.sdist.force-include]
+# "../my_other_project/src" = "src"
+
+# [tool.hatch.build.targets.wheel]
+# include = ["src", "mynamespace"]
+# sources = ["src", "mynamespace"]
+# only-packages = true
+
+
 [dependency-groups]
-dev = ["pytest>=8.3.5"]
+dev = ["pytest>=8.3.5", 
+# "my_other_project"
+]
+
+# [tool.uv.sources]
+# my_other_project = { path = "../my_other_project", editable = true }

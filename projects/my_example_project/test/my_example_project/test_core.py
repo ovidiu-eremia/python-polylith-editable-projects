@@ -1,5 +1,5 @@
-from my_example_project import core
+from my_example_project.core import use_base
 
 
 def test_sample():
-    assert core is not None
+    assert use_base().__name__.startswith("my_namespace")

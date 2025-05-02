@@ -6,8 +6,6 @@ build-backend = "hatchling.build"
 name = "my_example_project"
 version = "0.1.0"
 
-
-
 requires-python = ">=3.13"
 
 dependencies = []
@@ -15,8 +13,8 @@ dependencies = []
 [tool.hatch.build.hooks.polylith-bricks]
 
 [tool.polylith.bricks]
+"../../bases/my_namespace/my_example_base" = "my_namespace/my_example_base"
+"../../components/my_namespace/my_example_component" = "my_namespace/my_example_component"
 
 [dependency-groups]
-dev = [
-    "pytest>=8.3.5",
-]
+dev = ["pytest>=8.3.5"]

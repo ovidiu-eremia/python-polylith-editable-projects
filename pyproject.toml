@@ -18,3 +18,7 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build]
 dev-mode-dirs = ["components", "bases", "development", "."]
+
+[tool.polylith.bricks]
+"bases/my_namespace/my_example_base" = "my_namespace/my_example_base"
+"components/my_namespace/my_example_component" = "my_namespace/my_example_component"

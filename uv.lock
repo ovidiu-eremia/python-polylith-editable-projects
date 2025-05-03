@@ -119,6 +119,7 @@ source = { editable = "." }
 dev = [
     { name = "polylith-cli" },
     { name = "pytest" },
+    { name = "python-polylith-editable-projects" },
 ]
 
 [package.metadata]
@@ -127,6 +128,7 @@ dev = [
 dev = [
     { name = "polylith-cli", specifier = ">=1.26.0" },
     { name = "pytest", specifier = ">=8.3.5" },
+    { name = "python-polylith-editable-projects", editable = "." },
 ]
 
 [[package]]

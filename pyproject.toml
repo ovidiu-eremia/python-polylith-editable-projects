@@ -7,19 +7,47 @@ requires-python = ">=3.13"
 dependencies = []
 
 [dependency-groups]
-dev = [
-    "polylith-cli>=1.26.0",
-    "pytest>=8.3.5",
-]
+dev = ["polylith-cli>=1.26.0", "pytest>=8.3.5"]
 
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling", "hatch-polylith-bricks"]
 build-backend = "hatchling.build"
 
-[tool.hatch.build]
-dev-mode-dirs = ["components", "bases", "development", "."]
+# [tool.hatch.build]
+# dev-mode-dirs = ["components", "bases", "development", "."]
+# [tool.hatch.build.targets.wheel]
+# include = ["my_namespace"]
+# sources = ["my_namespace"]
+
+[tool.hatch.build.hooks.polylith-bricks]
+# this section is needed to enable the hook in the build process, even if empty.
+
+[tool.hatch.build.targets.wheel]
+include = [
+    ".",
+    "bases",
+    "components",
+    "development",
+]
+sources = [
+    ".",
+    "bases",
+    "components",
+    "development",
+]
+# only-packages = true
 
 [tool.polylith.bricks]
 "bases/my_namespace/my_example_base" = "my_namespace/my_example_base"
 "bases/my_tdd_base/src/my_namespace/my_tdd_base" = "my_namespace/my_tdd_base"
 "components/my_namespace/my_example_component" = "my_namespace/my_example_component"
+
+[tool.uv]
+cache-keys = [
+    { file = "pyproject.toml" },
+    { git = { commit = true, tags = true } },
+]
+dev-dependencies = ["python-polylith-editable-projects"]
+
+[tool.uv.sources]
+python-polylith-editable-projects = { workspace = true }

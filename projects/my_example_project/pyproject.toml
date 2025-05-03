@@ -12,8 +12,8 @@ dependencies = []
 
 [tool.hatch.build.hooks.polylith-bricks]
 
-[tool.polylith.build]
-top-namespace = "my_top_namespace"
+# [tool.polylith.build]
+# top-namespace = "my_top_namespace"
 
 [tool.polylith.bricks]
 "../../bases/my_namespace/my_example_base" = "my_namespace/my_example_base"

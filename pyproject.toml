@@ -13,28 +13,29 @@ dev = ["polylith-cli>=1.26.0", "pytest>=8.3.5"]
 requires = ["hatchling", "hatch-polylith-bricks"]
 build-backend = "hatchling.build"
 
-# [tool.hatch.build]
-# dev-mode-dirs = ["components", "bases", "development", "."]
-# [tool.hatch.build.targets.wheel]
-# include = ["my_namespace"]
-# sources = ["my_namespace"]
+[tool.hatch.build]
+dev-mode-dirs = ["components", "bases", "development", "test", "."]
+
+[tool.hatch.build.targets.wheel]
+include = ["my_namespace"]
+sources = ["my_namespace"]
 
 [tool.hatch.build.hooks.polylith-bricks]
 # this section is needed to enable the hook in the build process, even if empty.
 
-[tool.hatch.build.targets.wheel]
-include = [
-    "./*",
-    "bases/*",
-    "components/*",
-    "development/*",
-]
-sources = [
-    ".",
-    "bases",
-    "components",
-    "development",
-]
+# [tool.hatch.build.targets.wheel]
+# include = [
+#     "./*",
+#     "bases/*",
+#     "components/*",
+#     "development/*",
+# ]
+# sources = [
+#     ".",
+#     "bases",
+#     "components",
+#     "development",
+# ]
 # only-packages = true
 
 [tool.polylith.bricks]
@@ -57,7 +58,7 @@ python-polylith-editable-projects = { workspace = true }
 consider_namespace_packages = true
 mock_use_standalone_module = false
 cache_dir = ".venv/pytest-cache"
-testpaths = ["bases", "components", "test"]
+testpaths = ["test"]
 addopts = [
     "--import-mode=importlib",
     "--pdbcls=IPython.terminal.debugger:TerminalPdb",

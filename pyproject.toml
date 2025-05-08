@@ -24,10 +24,10 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 include = [
-    ".",
-    "bases",
-    "components",
-    "development",
+    "./*",
+    "bases/*",
+    "components/*",
+    "development/*",
 ]
 sources = [
     ".",
@@ -41,6 +41,7 @@ sources = [
 "bases/my_namespace/my_example_base" = "my_namespace/my_example_base"
 "bases/my_tdd_base/src/my_namespace/my_tdd_base" = "my_namespace/my_tdd_base"
 "components/my_namespace/my_example_component" = "my_namespace/my_example_component"
+"components/my_namespace/my_component" = "my_namespace/my_component"
 
 [tool.uv]
 cache-keys = [
@@ -51,3 +52,25 @@ dev-dependencies = ["python-polylith-editable-projects"]
 
 [tool.uv.sources]
 python-polylith-editable-projects = { workspace = true }
+
+[tool.pytest.ini_options]
+consider_namespace_packages = true
+mock_use_standalone_module = false
+cache_dir = ".venv/pytest-cache"
+testpaths = ["bases", "components", "test"]
+addopts = [
+    "--import-mode=importlib",
+    "--pdbcls=IPython.terminal.debugger:TerminalPdb",
+    # "-s -p no:warnings",
+    "--showlocals",
+    "--tb=long",
+    "-vvv",
+]
+filterwarnings = [
+    "ignore:.*distutils Version classes.*packaging.version:DeprecationWarning",
+]
+log_cli = true
+log_cli_level = "INFO"
+log_cli_format = "[pytest][%(asctime)s][%(levelname)s][%(module)s][%(funcName)s] %(message)s"
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"
+log_level = "INFO"

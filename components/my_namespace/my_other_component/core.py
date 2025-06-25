@@ -1,12 +1,7 @@
-"""Core module for the BoardRoom Insiders Bronze Data Model."""
-
 from my_namespace.my_component import DataBase
-
 
 import inspect
 from pathlib import Path
-
-print("importing my_ns.my_example_comp.core.py")
 
 def my_func():
     # inspect.stack()[1] is the caller's frame
@@ -24,9 +19,8 @@ def my_ll_func():
 my_func()
 # my_ll_func()
 # breakpoint()
-
-class BronzeBriDB(DataBase, run_init=True):
-    """Base class to serve as a namespace DB/schema for all the Bronze BRI Tables.
+class SilverBriDB(DataBase, run_init=True):
+    """Base class to serve as a namespace DB/schema for all the Silver BRI Tables.
 
     Args:
         DataModel (class): The base class from which it inherits.
